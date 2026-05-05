@@ -5,7 +5,7 @@ export default function DetalheProdutos({ route, navigation }) {
   return (
     <ScrollView contentContainerStyle={estilo.container}>
 
-      <Image source={produto.imagem} style={estilo.imagem} />
+      <Image source={{uri:produto.imagem}} style={estilo.imagem} />
       
       <Text style={estilo.titulo}>{produto.nome}</Text>
      

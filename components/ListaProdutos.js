@@ -1,27 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 // import DetalheProdutos from "./DetalheProdutos";
 
-export default function ListaProdutos({ produto}) {
+export default function ListaProdutos({ produto, quantidade, adicionar, subtrair }) {
     const navigation = useNavigation();
-    const [contador,setContador] = useState(0);
-
-
-    const adicionar = ()=>{
-        if (contador <100)setContador(contador+1);
-    };
-
-    const subtrair = ()=>{
-        if(contador > 0) setContador(contador-1);
-    };
 
 
 
     return (
         <View style = {estilo.card}>
 
-            <Image source={produto.imagem} style={estilo.imagem} 
+            <Image source={{uri: produto.imagem}} style={estilo.imagem} 
             />
 
             <Text style={estilo.tituloTela}>
@@ -44,12 +33,13 @@ export default function ListaProdutos({ produto}) {
                 </TouchableOpacity>
 
                 <Text style={estilo.qtd}>
-                    {contador}
+                    {quantidade}
                 </Text>
 
                 <TouchableOpacity style={estilo.botaoCompra} onPress={() => adicionar() }>
                     <Text style={estilo.botaoTextoCompra}>+</Text>
                 </TouchableOpacity>
+                
             </View>
 
         </View>
